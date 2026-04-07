@@ -1,19 +1,19 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-type ScreenType = 'main' | 'machine1' | 'machine2' | 'material' | 'interlock1' | 'interlock2' | 'alarm';
+type ScreenType = 'main' | 'machine1' | 'machine2' | 'material' | 'interlock1' | 'interlock2' | 'alarm' | 'autoCycle' | 'recipeManagement';
 
 export default function Home() {
   const [currentScreen, setCurrentScreen] = useState<ScreenType>('main');
 
   const handlePrevious = () => {
-    const order: ScreenType[] = ['main', 'machine1', 'machine2', 'material', 'interlock1', 'interlock2', 'alarm'];
+    const order: ScreenType[] = ['main', 'machine1', 'machine2', 'material', 'interlock1', 'interlock2', 'alarm', 'autoCycle', 'recipeManagement'];
     const idx = order.indexOf(currentScreen);
     if (idx > 0) setCurrentScreen(order[idx - 1]);
   };
 
   const handleNext = () => {
-    const order: ScreenType[] = ['main', 'machine1', 'machine2', 'material', 'interlock1', 'interlock2', 'alarm'];
+    const order: ScreenType[] = ['main', 'machine1', 'machine2', 'material', 'interlock1', 'interlock2', 'alarm', 'autoCycle', 'recipeManagement'];
     const idx = order.indexOf(currentScreen);
     if (idx < order.length - 1) setCurrentScreen(order[idx + 1]);
   };
@@ -27,6 +27,8 @@ export default function Home() {
       interlock1: 'Material Charging Interlock 1/2',
       interlock2: 'Material Charging Interlock 2/2',
       alarm: 'Alarm',
+      autoCycle: 'Auto Cycle',
+      recipeManagement: 'Recipe Management',
     };
     return titles[screen];
   };
@@ -58,6 +60,8 @@ export default function Home() {
           {currentScreen === 'interlock1' && <InterlockScreen1 />}
           {currentScreen === 'interlock2' && <InterlockScreen2 />}
           {currentScreen === 'alarm' && <AlarmScreen />}
+          {currentScreen === 'autoCycle' && <AutoCycleScreen onNavigate={setCurrentScreen} />}
+          {currentScreen === 'recipeManagement' && <RecipeManagementScreen onNavigate={setCurrentScreen} />}
         </div>
 
         {/* Footer Navigation */}
@@ -110,7 +114,7 @@ function MainMenuScreen({ onNavigate }: MainMenuScreenProps) {
     { label: 'Password Setup', screen: 'main' as ScreenType },
     { label: 'Process Operation', screen: 'main' as ScreenType },
     { label: 'Time Setting', screen: 'main' as ScreenType },
-    { label: 'Auto Cycle', screen: 'main' as ScreenType },
+    { label: 'Auto Cycle', screen: 'autoCycle' as ScreenType },
     { label: 'Alarm', screen: 'alarm' as ScreenType },
     { label: 'Material Charging', screen: 'material' as ScreenType },
     { label: 'Machine Light', screen: 'main' as ScreenType },
@@ -321,6 +325,96 @@ function AlarmScreen() {
           ESC
         </button>
       </div>
+    </div>
+  );
+}
+
+
+interface AutoCycleScreenProps {
+  onNavigate: (screen: ScreenType) => void;
+}
+
+function AutoCycleScreen({ onNavigate }: AutoCycleScreenProps) {
+  return (
+    <div className="border-2 border-gray-400 bg-gray-150 p-3">
+      <div className="text-xs font-bold text-gray-800 mb-3 text-center">Auto Cycle</div>
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          Start
+        </button>
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          Halt
+        </button>
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          Reset
+        </button>
+      </div>
+      <div className="bg-gray-200 border border-gray-400 p-2 mb-3 text-xs text-gray-800">
+        <div className="font-bold mb-1">Steam Bypass Valve</div>
+        <div className="flex gap-2">
+          <button className="flex-1 bg-gray-300 border border-gray-500 px-1 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+            Open
+          </button>
+          <button className="flex-1 bg-gray-300 border border-gray-500 px-1 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+            Close
+          </button>
+        </div>
+      </div>
+      <div className="bg-gray-200 border border-gray-400 p-2 mb-3 text-xs text-gray-800">
+        <div>Blower Current: <span className="font-bold">0.00 Amp.</span></div>
+      </div>
+      <div className="flex gap-2">
+        <button 
+          onClick={() => onNavigate('recipeManagement')}
+          className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          Recipe
+        </button>
+        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          Interlock
+        </button>
+      </div>
+    </div>
+  );
+}
+
+interface RecipeManagementScreenProps {
+  onNavigate: (screen: ScreenType) => void;
+}
+
+function RecipeManagementScreen({ onNavigate }: RecipeManagementScreenProps) {
+  const [recipes] = useState([
+    { id: 1, name: 'Recipe 1', temp: 80, time: 120 },
+    { id: 2, name: 'Recipe 2', temp: 85, time: 150 },
+    { id: 3, name: 'Recipe 3', temp: 75, time: 100 },
+  ]);
+
+  return (
+    <div className="border-2 border-gray-400 bg-gray-150 p-3">
+      <div className="text-xs font-bold text-gray-800 mb-2 text-center">Recipe Management</div>
+      <div className="bg-gray-200 border border-gray-400 p-2 mb-3 max-h-48 overflow-y-auto">
+        {recipes.map((recipe) => (
+          <div key={recipe.id} className="flex items-center justify-between py-1 border-b border-gray-300 text-xs">
+            <span className="text-gray-800 font-semibold">{recipe.name}</span>
+            <span className="text-gray-700">T:{recipe.temp}°C | {recipe.time}s</span>
+          </div>
+        ))}
+      </div>
+      <div className="grid grid-cols-3 gap-2 mb-3">
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          Recall
+        </button>
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          Save
+        </button>
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          Delete
+        </button>
+      </div>
+      <button 
+        onClick={() => onNavigate('autoCycle')}
+        className="w-full bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        Back to Auto Cycle
+      </button>
     </div>
   );
 }
