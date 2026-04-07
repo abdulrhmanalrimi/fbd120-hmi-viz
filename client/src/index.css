@@ -174,4 +174,25 @@
       max-width: 1280px; /* Standard content width */
     }
   }
+
+  /* FBD-120 HMI Custom Styles */
+  .hmi-button {
+    @apply bg-gray-300 border-2 border-gray-500 px-3 py-1 text-gray-800 font-bold text-sm hover:bg-gray-250 active:bg-gray-200 cursor-pointer;
+  }
+
+  .hmi-header {
+    @apply bg-gray-300 border-b-2 border-gray-400;
+  }
+
+  .hmi-container {
+    @apply border-4 border-gray-400 bg-gray-100 shadow-lg;
+  }
+
+  .hmi-screen {
+    @apply bg-gray-100 p-6 min-h-96;
+  }
+
+  .hmi-footer {
+    @apply bg-gray-300 border-t-2 border-gray-400;
+  }
 }
