@@ -36,7 +36,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-200 p-4 flex flex-col items-center justify-center">
       {/* HMI Screen Container */}
-      <div className="w-full max-w-2xl bg-gray-100 border-4 border-gray-400 shadow-lg">
+      <div className="w-full max-w-2xl bg-gray-100 border-4 border-gray-400 shadow-lg relative">
+        {/* YEDCO Logo */}
+        <div className="absolute top-3 right-3 z-10">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663520571327/Ze2j4hmmTQgACZ92Kev9cr/YEDCO_5190fae7.jpg" alt="YEDCO" className="h-12 w-12 object-contain" />
+        </div>
+        
         {/* Header */}
         <div className="bg-gray-300 border-b-2 border-gray-400 px-4 py-2 flex items-center justify-between">
           <div className="flex items-center gap-4 text-xs font-mono">
