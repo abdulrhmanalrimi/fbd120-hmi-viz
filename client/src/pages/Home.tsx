@@ -71,18 +71,18 @@ export default function Home() {
 
         {/* Footer Navigation */}
         <div className="bg-gray-300 border-t-2 border-gray-400 px-4 py-3 flex items-center justify-between">
-          <button onClick={handlePrevious} className="bg-gray-300 border-2 border-gray-500 px-3 py-2 text-gray-800 font-bold hover:bg-gray-250">
+          <button onClick={handlePrevious} className="bg-gray-300 border-2 border-gray-500 px-3 py-2 text-gray-800 font-bold hover:bg-gray-200">
             <ChevronLeft size={20} />
           </button>
           <div className="flex gap-2">
-            <button className="bg-gray-300 border-2 border-gray-500 px-4 py-2 text-xs font-bold text-gray-800 hover:bg-gray-250">
+            <button className="bg-gray-300 border-2 border-gray-500 px-4 py-2 text-xs font-bold text-gray-800 hover:bg-gray-200">
               Alarm
             </button>
-            <button className="bg-gray-300 border-2 border-gray-500 px-4 py-2 text-xs font-bold text-gray-800 hover:bg-gray-250">
+            <button className="bg-gray-300 border-2 border-gray-500 px-4 py-2 text-xs font-bold text-gray-800 hover:bg-gray-200">
               Hooter Reset
             </button>
           </div>
-          <button onClick={handleNext} className="bg-gray-300 border-2 border-gray-500 px-3 py-2 text-gray-800 font-bold hover:bg-gray-250">
+          <button onClick={handleNext} className="bg-gray-300 border-2 border-gray-500 px-3 py-2 text-gray-800 font-bold hover:bg-gray-200">
             <ChevronRight size={20} />
           </button>
         </div>
@@ -133,7 +133,7 @@ function MainMenuScreen({ onNavigate }: MainMenuScreenProps) {
         <button
           key={idx}
           onClick={() => onNavigate(btn.screen)}
-          className="bg-gray-300 border-2 border-gray-500 px-4 py-3 text-gray-800 font-bold text-sm hover:bg-gray-250 active:bg-gray-200"
+          className="bg-gray-300 border-2 border-gray-500 px-4 py-3 text-gray-800 font-bold text-sm hover:bg-gray-200 active:bg-gray-200"
         >
           {btn.label}
         </button>
@@ -157,13 +157,13 @@ function MachineOperation1Screen() {
       {operations.map((op, idx) => (
         <div key={idx} className="border-2 border-gray-400 bg-gray-150 p-2">
           <div className="text-xs font-bold text-gray-800 text-center mb-1">{op.label}</div>
-          <button className="w-full bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250 mb-1">
+          <button className="w-full bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200 mb-1">
             {op.action}
           </button>
-          <button className="w-full bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250 mb-1">
+          <button className="w-full bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200 mb-1">
             {op.state}
           </button>
-          <button className="w-full bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          <button className="w-full bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
             Interlock
           </button>
         </div>
@@ -216,10 +216,10 @@ function MaterialChargingScreen() {
         </tbody>
       </table>
       <div className="mt-3 flex gap-2">
-        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Stop
         </button>
-        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Interlock
         </button>
       </div>
@@ -251,10 +251,10 @@ function InterlockScreen1() {
         ))}
       </div>
       <div className="mt-3 flex gap-2">
-        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Alarm
         </button>
-        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Hooter Reset
         </button>
       </div>
@@ -283,10 +283,10 @@ function InterlockScreen2() {
         ))}
       </div>
       <div className="mt-3 flex gap-2">
-        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Alarm
         </button>
-        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Hooter Reset
         </button>
       </div>
@@ -324,10 +324,10 @@ function AlarmScreen() {
         </tbody>
       </table>
       <div className="mt-3 flex gap-2">
-        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           ACK
         </button>
-        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           ESC
         </button>
       </div>
@@ -345,23 +345,23 @@ function AutoCycleScreen({ onNavigate }: AutoCycleScreenProps) {
     <div className="border-2 border-gray-400 bg-gray-150 p-3">
       <div className="text-xs font-bold text-gray-800 mb-3 text-center">Auto Cycle</div>
       <div className="grid grid-cols-3 gap-2 mb-4">
-        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Start
         </button>
-        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Halt
         </button>
-        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Reset
         </button>
       </div>
       <div className="bg-gray-200 border border-gray-400 p-2 mb-3 text-xs text-gray-800">
         <div className="font-bold mb-1">Steam Bypass Valve</div>
         <div className="flex gap-2">
-          <button className="flex-1 bg-gray-300 border border-gray-500 px-1 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          <button className="flex-1 bg-gray-300 border border-gray-500 px-1 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
             Open
           </button>
-          <button className="flex-1 bg-gray-300 border border-gray-500 px-1 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          <button className="flex-1 bg-gray-300 border border-gray-500 px-1 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
             Close
           </button>
         </div>
@@ -372,10 +372,10 @@ function AutoCycleScreen({ onNavigate }: AutoCycleScreenProps) {
       <div className="flex gap-2">
         <button 
           onClick={() => onNavigate('recipeManagement')}
-          className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+          className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Recipe
         </button>
-        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="flex-1 bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Interlock
         </button>
       </div>
@@ -406,19 +406,19 @@ function RecipeManagementScreen({ onNavigate }: RecipeManagementScreenProps) {
         ))}
       </div>
       <div className="grid grid-cols-3 gap-2 mb-3">
-        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Recall
         </button>
-        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Save
         </button>
-        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        <button className="bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
           Delete
         </button>
       </div>
       <button 
         onClick={() => onNavigate('autoCycle')}
-        className="w-full bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-250">
+        className="w-full bg-gray-300 border border-gray-500 px-2 py-1 text-xs font-bold text-gray-800 hover:bg-gray-200">
         Back to Auto Cycle
       </button>
     </div>
