@@ -66,26 +66,27 @@ export default function Home() {
 
         {/* Footer Navigation */}
         <div className="bg-gray-300 border-t-2 border-gray-400 px-4 py-3 flex items-center justify-between">
-          <button
-            onClick={handlePrevious}
-            className="flex items-center gap-1 px-3 py-1 bg-gray-400 border border-gray-500 text-gray-800 font-bold text-sm hover:bg-gray-350"
-          >
-            <ChevronLeft className="w-4 h-4" />
+          <button onClick={handlePrevious} className="bg-gray-300 border-2 border-gray-500 px-3 py-2 text-gray-800 font-bold hover:bg-gray-250">
+            <ChevronLeft size={20} />
           </button>
           <div className="flex gap-2">
-            <button className="px-4 py-1 bg-gray-400 border border-gray-500 text-gray-800 font-bold text-sm hover:bg-gray-350">
+            <button className="bg-gray-300 border-2 border-gray-500 px-4 py-2 text-xs font-bold text-gray-800 hover:bg-gray-250">
               Alarm
             </button>
-            <button className="px-4 py-1 bg-gray-400 border border-gray-500 text-gray-800 font-bold text-sm hover:bg-gray-350">
+            <button className="bg-gray-300 border-2 border-gray-500 px-4 py-2 text-xs font-bold text-gray-800 hover:bg-gray-250">
               Hooter Reset
             </button>
           </div>
-          <button
-            onClick={handleNext}
-            className="flex items-center gap-1 px-3 py-1 bg-gray-400 border border-gray-500 text-gray-800 font-bold text-sm hover:bg-gray-350"
-          >
-            <ChevronRight className="w-4 h-4" />
+          <button onClick={handleNext} className="bg-gray-300 border-2 border-gray-500 px-3 py-2 text-gray-800 font-bold hover:bg-gray-250">
+            <ChevronRight size={20} />
           </button>
+        </div>
+
+        {/* Footer Credits */}
+        <div className="bg-gray-200 border-t border-gray-400 px-4 py-2 text-center text-xs text-gray-700">
+          <div className="font-semibold">برمجة</div>
+          <div>المهندس/ وائل العلماني</div>
+          <div>المهندس/ عبدالرحمن الريمي</div>
         </div>
       </div>
 
